@@ -1,6 +1,9 @@
 <?php
+
 namespace frontend\controllers;
 
+use common\models\weixin\ErrorCode;
+use common\models\weixin\WXBizDataCrypt;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -211,5 +214,21 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionTest($srcData, $iv, $code)
+    {
+        if (!Yii::$app->weixin->getAppAuth($code)) {
+            return;
+        }
+
+        $pc = new WXBizDataCrypt(Yii::$app->params['weixinId'], Yii::$app->weixin->getAppToken());
+        $errCode = $pc->decryptData($srcData, $iv, $data);
+
+        if ($errCode == ErrorCode::$OK) {
+            Yii::warning("gid: " . json_encode($data));
+        } else {
+            Yii::warning("gid: " . $errCode);
+        }
     }
 }
