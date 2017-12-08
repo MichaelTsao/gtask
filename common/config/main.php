@@ -11,6 +11,7 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'redis' => require(__DIR__ . '/redis.php'),
         'weixin' => [
             'class' => 'caoxiang\weixin\Weixin',
             'appId' => $params['weixinId'],
