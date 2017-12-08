@@ -8,12 +8,13 @@
 
 namespace console\controllers;
 
+use common\models\weixin\WeixinBizData;
 use Yii;
 
 class TestController extends \yii\console\Controller
 {
     public function actionIndex()
     {
-        Yii::$app->redis->set('a', 1);
+        $pc = new WeixinBizData(Yii::$app->params['weixinId'], 'abc');
     }
 }
