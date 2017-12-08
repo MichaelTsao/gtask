@@ -12,7 +12,6 @@ namespace common\models\weixin;
  *    <li>-41016: base64解密失败</li>
  * </ul>
  */
-
 class ErrorCode
 {
     public static $OK = 0;
