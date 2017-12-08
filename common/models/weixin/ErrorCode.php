@@ -1,5 +1,4 @@
 ﻿<?php
-
 namespace common\models\weixin;
 
 /**
