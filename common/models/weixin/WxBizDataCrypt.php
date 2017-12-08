@@ -1,4 +1,5 @@
 ﻿<?php
+
 namespace common\models\weixin;
 
 /**
@@ -7,7 +8,7 @@ namespace common\models\weixin;
  * @copyright Copyright (c) 1998-2014 Tencent Inc.
  */
 
-class WXBizDataCrypt
+class WxBizDataCrypt
 {
     private $appid;
     private $sessionKey;

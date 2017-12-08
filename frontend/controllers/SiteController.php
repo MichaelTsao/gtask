@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 use common\models\weixin\ErrorCode;
-use common\models\weixin\WXBizDataCrypt;
+use common\models\weixin\WxBizDataCrypt;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -224,7 +224,7 @@ class SiteController extends Controller
             return;
         }
 
-        $pc = new WXBizDataCrypt(Yii::$app->params['weixinId'], Yii::$app->weixin->getAppToken());
+        $pc = new WxBizDataCrypt(Yii::$app->params['weixinId'], Yii::$app->weixin->getAppToken());
         $errCode = $pc->decryptData($srcData, $iv, $data);
 
         if ($errCode == ErrorCode::$OK) {
