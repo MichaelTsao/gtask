@@ -1,5 +1,13 @@
-﻿<?php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: caoxiang
+ * Date: 2017/12/8
+ * Time: 下午5:51
+ */
+
 namespace common\models\weixin;
+
 
 /**
  * error code 说明.
